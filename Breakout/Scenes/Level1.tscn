@@ -6,130 +6,194 @@
 
 [node name="Block" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 100, 100 )
+transform/pos = Vector2( 96, 100 )
+has_item = false
+item_type = 0
 
 [node name="Block 2" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 100, 112 )
+transform/pos = Vector2( 96, 112 )
+has_item = false
+item_type = 0
 
 [node name="Block 3" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 141, 100 )
+transform/pos = Vector2( 138, 100 )
+has_item = false
+item_type = 0
 
 [node name="Block 4" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 141, 112 )
+transform/pos = Vector2( 138, 112 )
+has_item = false
+item_type = 0
 
 [node name="Block 5" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 182, 100 )
+transform/pos = Vector2( 180, 100 )
+has_item = false
+item_type = 0
 
 [node name="Block 6" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 182, 112 )
+transform/pos = Vector2( 180, 112 )
+has_item = true
+item_type = 1
 
 [node name="Block 7" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 223, 100 )
+transform/pos = Vector2( 222, 100 )
+has_item = false
+item_type = 0
 
 [node name="Block 8" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 223, 112 )
+transform/pos = Vector2( 222, 112 )
+has_item = false
+item_type = 0
 
 [node name="Block 9" parent="." instance=ExtResource( 1 )]
 
 transform/pos = Vector2( 264, 100 )
+has_item = false
+item_type = 0
 
 [node name="Block 10" parent="." instance=ExtResource( 1 )]
 
 transform/pos = Vector2( 264, 112 )
+has_item = true
+item_type = 2
 
 [node name="Block 11" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 305, 100 )
+transform/pos = Vector2( 306, 100 )
+has_item = false
+item_type = 0
 
 [node name="Block 12" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 305, 112 )
+transform/pos = Vector2( 306, 112 )
+has_item = false
+item_type = 0
 
 [node name="Block 13" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 346, 100 )
+transform/pos = Vector2( 348, 100 )
+has_item = true
+item_type = 2
 
 [node name="Block21 2" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 387, 100 )
+transform/pos = Vector2( 390, 100 )
+has_item = false
+item_type = 0
 
 [node name="Block14" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 346, 124 )
+transform/pos = Vector2( 348, 124 )
+has_item = true
+item_type = 1
 
 [node name="Block22 6" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 346, 136 )
+transform/pos = Vector2( 348, 136 )
+has_item = false
+item_type = 0
 
 [node name="Block21" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 387, 124 )
+transform/pos = Vector2( 390, 124 )
+has_item = false
+item_type = 0
 
 [node name="Block22 8" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 387, 136 )
+transform/pos = Vector2( 390, 136 )
+has_item = true
+item_type = 1
 
 [node name="Block 14" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 346, 112 )
+transform/pos = Vector2( 348, 112 )
+has_item = true
+item_type = 1
 
 [node name="Block21 3" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 387, 112 )
+transform/pos = Vector2( 390, 112 )
+has_item = false
+item_type = 0
 
 [node name="Block15" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 305, 124 )
+transform/pos = Vector2( 306, 124 )
+has_item = false
+item_type = 0
 
 [node name="Block22 7" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 305, 136 )
+transform/pos = Vector2( 306, 136 )
+has_item = false
+item_type = 0
 
 [node name="Block16" parent="." instance=ExtResource( 1 )]
 
 transform/pos = Vector2( 264, 124 )
+has_item = false
+item_type = 0
 
 [node name="Block22" parent="." instance=ExtResource( 1 )]
 
 transform/pos = Vector2( 264, 136 )
+has_item = false
+item_type = 0
 
 [node name="Block17" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 100, 124 )
+transform/pos = Vector2( 96, 124 )
+has_item = false
+item_type = 0
 
 [node name="Block22 5" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 100, 136 )
+transform/pos = Vector2( 96, 136 )
+has_item = false
+item_type = 0
 
 [node name="Block20" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 141, 124 )
+transform/pos = Vector2( 138, 124 )
+has_item = true
+item_type = 0
 
 [node name="Block22 2" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 141, 136 )
+transform/pos = Vector2( 138, 136 )
+has_item = false
+item_type = 0
 
 [node name="Block19" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 182, 124 )
+transform/pos = Vector2( 180, 124 )
+has_item = false
+item_type = 0
 
 [node name="Block22 3" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 182, 136 )
+transform/pos = Vector2( 180, 136.129 )
+has_item = false
+item_type = 0
 
 [node name="Block18" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 223, 124 )
+transform/pos = Vector2( 222, 124 )
+has_item = false
+item_type = 0
 
 [node name="Block22 4" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 223, 136 )
+transform/pos = Vector2( 222, 136 )
+has_item = true
+item_type = 0
 
 
