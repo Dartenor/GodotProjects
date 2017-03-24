@@ -2,7 +2,7 @@ extends Node2D
 
 export var level = 1
 export var has_item = false
-export var item_type = 0
+export var item_type = 2
 
 onready var item = preload("res://Scenes/BonusMalus.tscn")
 onready var spriteNode = get_node("./Sprite")
@@ -29,3 +29,5 @@ func _hit_by_ball() :
 			itemNode.set_pos(get_pos())
 			get_parent().add_child(itemNode)
 		queue_free()
+		if (get_parent() != null):
+			get_parent()._on_child_freed()

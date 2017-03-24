@@ -3,7 +3,8 @@ extends KinematicBody2D
 export var speed = 200
 var viewportSize
 onready var halfsprite = get_node("./Sprite").get_texture().get_size().x/2
-onready var ball = preload("res://Scenes/Ball.tscn")
+onready var ballContainer = get_node("/root/World/BallContainer")
+var ballAttached = null
 
 var itemTime = 0
 
@@ -21,6 +22,11 @@ func _fixed_process(delta):
 	var newPos = get_pos() + (speed*direction*delta)
 	newPos.x = clamp(newPos.x, halfsprite, viewportSize.width - halfsprite)
 	set_pos(newPos)
+	if (ballAttached != null):
+		ballAttached.set_pos(newPos + Vector2(0,-11))
+		if(Input.is_action_pressed("ui_up")):
+			ballAttached.set_linear_velocity(Vector2(200,-200))
+			ballAttached = null
 	
 func _on_bonus_malus_hit(bonusmalus):
 	itemTime = 5
@@ -29,11 +35,6 @@ func _on_bonus_malus_hit(bonusmalus):
 	elif(bonusmalus.type == 1):
 		speed = 300
 	else:
-		var ballNode = ball.instance()
-		ballNode.set_linear_velocity(ballNode.get_linear_velocity() + Vector2(10,-10))
-		get_parent().add_child(ballNode)
-		
-		ballNode = ball.instance()
-		ballNode.set_linear_velocity(ballNode.get_linear_velocity() + Vector2(20,-20))
-		get_parent().add_child(ballNode)
+		ballContainer._instance_ball(false)
+		ballContainer._instance_ball(false)
 	bonusmalus.queue_free() 

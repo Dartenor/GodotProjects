@@ -1,0 +1,269 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Block.tscn" type="PackedScene" id=2]
+
+[node name="Level2" type="Node2D"]
+
+transform/pos = Vector2( 172, 72 )
+script/script = ExtResource( 1 )
+levelNr = 2
+
+[node name="Block" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 140, -20 )
+level = 3
+
+[node name="Block 2" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -10, -20 )
+level = 3
+
+[node name="Block 3" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 10, -30 )
+level = 3
+has_item = true
+
+[node name="Block 4" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 84, -30 )
+level = 3
+
+[node name="Block 5" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 118, -30 )
+level = 3
+
+[node name="Block 6" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 50, -30 )
+level = 3
+
+[node name="Block 7" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 220, 20 )
+level = 3
+
+[node name="Block 8" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -70, 10 )
+level = 3
+has_item = true
+item_type = 1
+
+[node name="Block 9" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 200, 10 )
+level = 3
+
+[node name="Block 10" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -50, 0 )
+level = 3
+
+[node name="Block 11" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 180, 0 )
+level = 3
+
+[node name="Block 12" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -30, -10 )
+level = 3
+has_item = true
+
+[node name="Block 13" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 160, -10 )
+level = 3
+
+[node name="Block 14" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -90, 20 )
+level = 3
+
+[node name="Block1" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 140, 90 )
+level = 3
+has_item = true
+item_type = 0
+
+[node name="Block3" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -10, 90 )
+level = 3
+
+[node name="Block4" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 10, 100 )
+level = 3
+
+[node name="Block5" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 90, 100 )
+level = 3
+
+[node name="Block6" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 120, 100 )
+level = 3
+has_item = true
+item_type = 1
+
+[node name="Block7" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 50, 100 )
+level = 3
+
+[node name="Block8" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 220, 50 )
+level = 3
+
+[node name="Block9" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -70, 60 )
+level = 3
+
+[node name="Block10" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 200, 60 )
+level = 3
+has_item = true
+
+[node name="Block11" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -50, 70 )
+level = 3
+
+[node name="Block12" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 180, 70 )
+level = 3
+
+[node name="Block13" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -30, 80 )
+level = 3
+
+[node name="Block14" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 160, 80 )
+level = 3
+has_item = true
+item_type = 1
+
+[node name="Block15" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -90, 30 )
+level = 3
+
+[node name="Block 15" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 220, 30 )
+level = 3
+
+[node name="Block 16" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 220, 40 )
+level = 3
+
+[node name="Block 17" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -90, 40 )
+level = 3
+
+[node name="Block 18" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -90, 50 )
+level = 3
+has_item = true
+
+[node name="Block 19" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 20, 10 )
+level = 2
+
+[node name="Block 20" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 0, 20 )
+level = 2
+
+[node name="Block 21" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -20, 30 )
+level = 2
+
+[node name="Block 22" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -20, 40 )
+level = 2
+has_item = true
+item_type = 0
+
+[node name="Block 23" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 0, 50 )
+level = 2
+
+[node name="Block 24" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 20, 60 )
+level = 2
+
+[node name="Block 25" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 60, 10 )
+level = 2
+
+[node name="Block 26" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 100, 10 )
+level = 2
+has_item = true
+item_type = 0
+
+[node name="Block 27" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 60, 60 )
+level = 2
+
+[node name="Block 28" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 100, 60 )
+level = 2
+
+[node name="Block 29" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 120, 50 )
+level = 2
+
+[node name="Block 30" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 120, 20 )
+level = 2
+has_item = true
+item_type = 1
+
+[node name="Block 31" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 140, 30 )
+level = 2
+
+[node name="Block 32" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 140, 40 )
+level = 2
+
+[node name="Block 33" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 60, 30 )
+
+[node name="Block 34" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 60, 40 )
+has_item = true
+
+

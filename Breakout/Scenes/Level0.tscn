@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Block.tscn" type="PackedScene" id=2]
+
+[node name="Level0" type="Node2D"]
+
+transform/pos = Vector2( 242, 112 )
+script/script = ExtResource( 1 )
+levelNr = 0
+
+[node name="Block" parent="." instance=ExtResource( 2 )]
+
+

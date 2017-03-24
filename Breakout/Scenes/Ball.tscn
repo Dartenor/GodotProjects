@@ -10,7 +10,8 @@ radius = 5.5
 
 [node name="Ball" type="RigidBody2D"]
 
-transform/pos = Vector2( 242, 302 )
+editor/display_folded = true
+transform/pos = Vector2( 200, 382 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -28,7 +29,7 @@ contacts_reported = 1
 contact_monitor = true
 sleeping = false
 can_sleep = true
-velocity/linear = Vector2( 200, -200 )
+velocity/linear = Vector2( 0, 0 )
 velocity/angular = 0.0
 damp_override/linear = 0.0
 damp_override/angular = 0.0
