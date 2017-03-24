@@ -5,265 +5,267 @@
 
 [node name="Level2" type="Node2D"]
 
-transform/pos = Vector2( 172, 72 )
+transform/pos = Vector2( 172, 71 )
 script/script = ExtResource( 1 )
 levelNr = 2
 
 [node name="Block" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 140, -20 )
+transform/pos = Vector2( 128, -27 )
 level = 3
 
 [node name="Block 2" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( -10, -20 )
+transform/pos = Vector2( 4, -27 )
 level = 3
 
 [node name="Block 3" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 10, -30 )
+transform/pos = Vector2( 24, -39 )
 level = 3
 has_item = true
 
-[node name="Block 4" parent="." instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 84, -30 )
-level = 3
-
 [node name="Block 5" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 118, -30 )
+transform/pos = Vector2( 108, -39 )
 level = 3
 
 [node name="Block 6" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 50, -30 )
+transform/pos = Vector2( 66, -39 )
 level = 3
 
 [node name="Block 7" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 220, 20 )
+transform/pos = Vector2( 208, 21 )
 level = 3
 
 [node name="Block 8" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( -70, 10 )
+transform/pos = Vector2( -55, 9 )
 level = 3
 has_item = true
 item_type = 1
 
 [node name="Block 9" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 200, 10 )
+transform/pos = Vector2( 188, 9 )
 level = 3
 
 [node name="Block 10" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( -50, 0 )
+transform/pos = Vector2( -36, -3 )
 level = 3
 
 [node name="Block 11" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 180, 0 )
+transform/pos = Vector2( 168, -3 )
 level = 3
 
 [node name="Block 12" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( -30, -10 )
+transform/pos = Vector2( -16, -15 )
 level = 3
 has_item = true
 
 [node name="Block 13" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 160, -10 )
+transform/pos = Vector2( 148, -15 )
 level = 3
 
 [node name="Block 14" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( -90, 20 )
+transform/pos = Vector2( -76, 21 )
 level = 3
 
 [node name="Block1" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 140, 90 )
+transform/pos = Vector2( 128, 93 )
 level = 3
 has_item = true
 item_type = 0
 
 [node name="Block3" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( -10, 90 )
+transform/pos = Vector2( 4, 93 )
 level = 3
 
 [node name="Block4" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 10, 100 )
+transform/pos = Vector2( 24, 105 )
 level = 3
 
 [node name="Block5" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 90, 100 )
+transform/pos = Vector2( 66, 105 )
 level = 3
 
 [node name="Block6" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 120, 100 )
+transform/pos = Vector2( 108, 105 )
 level = 3
 has_item = true
 item_type = 1
 
-[node name="Block7" parent="." instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 50, 100 )
-level = 3
-
 [node name="Block8" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 220, 50 )
+transform/pos = Vector2( 208, 45 )
 level = 3
 
 [node name="Block9" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( -70, 60 )
+transform/pos = Vector2( -55, 57 )
 level = 3
 
 [node name="Block10" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 200, 60 )
+transform/pos = Vector2( 188, 57 )
 level = 3
 has_item = true
 
 [node name="Block11" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( -50, 70 )
+transform/pos = Vector2( -36, 69 )
 level = 3
 
 [node name="Block12" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 180, 70 )
+transform/pos = Vector2( 168, 69 )
 level = 3
 
 [node name="Block13" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( -30, 80 )
+transform/pos = Vector2( -15, 81 )
 level = 3
 
 [node name="Block14" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 160, 80 )
+transform/pos = Vector2( 148, 81 )
 level = 3
 has_item = true
 item_type = 1
 
-[node name="Block15" parent="." instance=ExtResource( 2 )]
-
-transform/pos = Vector2( -90, 30 )
-level = 3
-
 [node name="Block 15" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 220, 30 )
-level = 3
-
-[node name="Block 16" parent="." instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 220, 40 )
+transform/pos = Vector2( 208, 33 )
 level = 3
 
 [node name="Block 17" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( -90, 40 )
+transform/pos = Vector2( -76, 33 )
 level = 3
 
 [node name="Block 18" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( -90, 50 )
+transform/pos = Vector2( -76, 45 )
 level = 3
 has_item = true
 
 [node name="Block 19" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 20, 10 )
+transform/pos = Vector2( 46, -6 )
 level = 2
 
 [node name="Block 20" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 0, 20 )
+transform/pos = Vector2( 26, 7 )
 level = 2
 
 [node name="Block 21" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( -20, 30 )
+transform/pos = Vector2( -14, 33 )
 level = 2
 
 [node name="Block 22" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( -20, 40 )
+transform/pos = Vector2( 6, 20 )
 level = 2
 has_item = true
 item_type = 0
 
 [node name="Block 23" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 0, 50 )
+transform/pos = Vector2( 6, 46 )
 level = 2
 
 [node name="Block 24" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 20, 60 )
+transform/pos = Vector2( 26, 59 )
 level = 2
 
 [node name="Block 25" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 60, 10 )
+transform/pos = Vector2( 88, -6 )
 level = 2
-
-[node name="Block 26" parent="." instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 100, 10 )
-level = 2
-has_item = true
-item_type = 0
 
 [node name="Block 27" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 60, 60 )
+transform/pos = Vector2( 46, 72 )
 level = 2
 
 [node name="Block 28" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 100, 60 )
+transform/pos = Vector2( 89, 72 )
 level = 2
 
 [node name="Block 29" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 120, 50 )
+transform/pos = Vector2( 109, 59 )
 level = 2
 
 [node name="Block 30" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 120, 20 )
+transform/pos = Vector2( 129, 20 )
 level = 2
 has_item = true
 item_type = 1
 
+[node name="Block 4" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 109, 7 )
+level = 2
+has_item = true
+
 [node name="Block 31" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 140, 30 )
+transform/pos = Vector2( 149, 33 )
 level = 2
 
 [node name="Block 32" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 140, 40 )
+transform/pos = Vector2( 129, 46 )
 level = 2
 
 [node name="Block 33" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 60, 30 )
+transform/pos = Vector2( 68, 27 )
 
 [node name="Block 34" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 60, 40 )
+transform/pos = Vector2( 68, 37 )
 has_item = true
+
+[node name="Block 16" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -137, -51 )
+level = 3
+has_item = true
+item_type = 0
+
+[node name="Block 26" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -137, -41 )
+level = 3
+
+[node name="Block 36" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 273, -41 )
+level = 3
+has_item = true
+
+[node name="Block 35" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 273, -51 )
+level = 3
 
 
