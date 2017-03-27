@@ -9,14 +9,16 @@ func _ready():
 
 func _fixed_process(delta):
 	var pos = get_pos()
+	
 	var dir = Vector2(Input.is_action_pressed("ui_right") - Input.is_action_pressed("ui_left"),0)
 	if (dir == Vector2(0,0)):
 		dir = Vector2(0,Input.is_action_pressed("ui_down") - Input.is_action_pressed("ui_up"))
 	if (dir != Vector2(0,0)):
-		newDir = dir
-		if (move_to(pos + (delta * newDir * speed)) > Vector2(0,0)):
-			direction = newDir
-			newDir = Vector2(0,0)
-			return
+		direction = dir
 	
-	move_to(pos + (delta * direction * speed))
+	var space_state = get_world_2d().get_direct_space_state()
+	var posToCheck = pos + (direction * Vector2(50,50))
+	var result = space_state.intersect_ray( pos, posToCheck, [self])
+	if (not result.empty()):
+		if (result.collider.get_name() == "Path"):
+			set_pos(pos + (delta * direction * speed))
