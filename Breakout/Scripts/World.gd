@@ -8,7 +8,7 @@ onready var player = get_node("./Player")
 onready var ballContainer = get_node("./BallContainer")
 
 func _ready():
-	_instance_level(2)
+	_instance_level(0)
 	
 func _instance_level(level):
 	ballContainer._clear_balls()

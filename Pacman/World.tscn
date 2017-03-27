@@ -256,7 +256,8 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 
-transform/pos = Vector2( 136, 382 )
+transform/pos = Vector2( 110.276, 324.99 )
+transform/scale = Vector2( 1, 1 )
 input/pickable = false
 shapes/0/shape = SubResource( 22 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
