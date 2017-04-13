@@ -1,6 +1,9 @@
-[gd_scene load_steps=68 format=1]
+[gd_scene load_steps=71 format=1]
 
-[ext_resource path="res://Sprites/Level.png" type="Texture" id=1]
+[ext_resource path="res://Script/Level.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Level.png" type="Texture" id=2]
+[ext_resource path="res://Script/GemContainer.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Gem.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -334,8 +337,23 @@ extents = Vector2( 16, 4 )
 
 [node name="Level" type="StaticBody2D"]
 
-editor/display_folded = true
 transform/pos = Vector2( 224, 247 )
+input/pickable = false
+collision/layers = 3
+collision/mask = 3
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script/script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="WallContainer" type="StaticBody2D" parent="."]
+
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -535,19 +553,14 @@ shapes/64/trigger = false
 shapes/65/shape = SubResource( 66 )
 shapes/65/transform = Matrix32( 1, 0, 0, 1, 0, -44 )
 shapes/65/trigger = false
-collision/layers = 1
-collision/mask = 1
+collision/layers = 3
+collision/mask = 3
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="Sprite" type="Sprite" parent="."]
-
-texture = ExtResource( 1 )
-__meta__ = { "_edit_lock_":true }
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallContainer"]
 
 build_mode = 0
 polygon = Vector2Array( -223, 0, -136, 0, -136, 64, -216, 64, -216, 144, -184, 144, -184, 160, -216, 160, -216, 240, 216, 240, 216, 160, 184, 160, 184, 144, 216, 144, 216, 64, 136, 64, 136, 0, 224, 0, 224, 248, -224, 249 )
@@ -555,7 +568,7 @@ shape_range = Vector2( 0, 10 )
 trigger = false
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer"]
 
 transform/pos = Vector2( -96, 32 )
 shape = SubResource( 12 )
@@ -563,7 +576,7 @@ trigger = false
 _update_shape_index = 11
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionShape2D 2" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D 2" type="CollisionShape2D" parent="WallContainer"]
 
 transform/pos = Vector2( -72, 104 )
 shape = SubResource( 13 )
@@ -571,7 +584,7 @@ trigger = false
 _update_shape_index = 12
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionPolygon2D 2" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D 2" type="CollisionPolygon2D" parent="WallContainer"]
 
 build_mode = 0
 polygon = Vector2Array( -152, 112, -184, 112, -184, 96, -136, 96, -136, 160, -152, 160 )
@@ -579,7 +592,7 @@ shape_range = Vector2( 13, 14 )
 trigger = false
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionPolygon2D 3" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D 3" type="CollisionPolygon2D" parent="WallContainer"]
 
 build_mode = 0
 polygon = Vector2Array( -104, 192, -184, 192, -184, 208, -40, 208, -40, 192, -88, 192, -88, 144, -104, 144 )
@@ -587,7 +600,7 @@ shape_range = Vector2( 15, 18 )
 trigger = false
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionPolygon2D 4" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D 4" type="CollisionPolygon2D" parent="WallContainer"]
 
 build_mode = 0
 polygon = Vector2Array( -8.1467, 64.1046, -56, 64, -55.9314, 47.867, 56, 48, 56, 64, 8, 64, 8, 112, -8, 112 )
@@ -595,7 +608,7 @@ shape_range = Vector2( 19, 21 )
 trigger = false
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionPolygon2D 5" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D 5" type="CollisionPolygon2D" parent="WallContainer"]
 
 build_mode = 0
 polygon = Vector2Array( -8, 160, -8, 208, 8, 208, 8, 160, 56, 160, 56, 144, -56, 144, -56, 160 )
@@ -603,7 +616,7 @@ shape_range = Vector2( 22, 25 )
 trigger = false
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionPolygon2D 6" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D 6" type="CollisionPolygon2D" parent="WallContainer"]
 
 build_mode = 0
 polygon = Vector2Array( 88, 192, 88, 144, 104, 144, 104, 192, 184, 192, 184, 208, 40, 208, 40, 192 )
@@ -611,7 +624,7 @@ shape_range = Vector2( 26, 29 )
 trigger = false
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionPolygon2D 7" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D 7" type="CollisionPolygon2D" parent="WallContainer"]
 
 build_mode = 0
 polygon = Vector2Array( 152, 112, 184, 112, 184, 96, 136, 96, 136, 160, 152, 160 )
@@ -619,7 +632,7 @@ shape_range = Vector2( 30, 31 )
 trigger = false
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionShape2D 3" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D 3" type="CollisionShape2D" parent="WallContainer"]
 
 transform/pos = Vector2( 72, 104 )
 shape = SubResource( 33 )
@@ -627,7 +640,7 @@ trigger = false
 _update_shape_index = 32
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionShape2D 4" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D 4" type="CollisionShape2D" parent="WallContainer"]
 
 transform/pos = Vector2( 96, 32 )
 shape = SubResource( 34 )
@@ -635,7 +648,7 @@ trigger = false
 _update_shape_index = 33
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionPolygon2D 8" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D 8" type="CollisionPolygon2D" parent="WallContainer"]
 
 build_mode = 0
 polygon = Vector2Array( 224, -32, 224, -248, -224, -248, -224, -32, -136, -32, -136, -96, -216, -96, -216, -240, -8, -240, -8, -176, 8, -176, 8, -240, 216, -240, 216, -96, 136, -96, 136, -32 )
@@ -643,7 +656,7 @@ shape_range = Vector2( 34, 41 )
 trigger = false
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionPolygon2D 9" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D 9" type="CollisionPolygon2D" parent="WallContainer"]
 
 build_mode = 0
 polygon = Vector2Array( -88, -80, -40, -80, -40, -96, -88, -96, -88, -144, -104, -144, -104, -32, -88, -32 )
@@ -651,7 +664,7 @@ shape_range = Vector2( 42, 45 )
 trigger = false
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionShape2D 5" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D 5" type="CollisionShape2D" parent="WallContainer"]
 
 transform/pos = Vector2( -160, -136 )
 shape = SubResource( 47 )
@@ -659,7 +672,7 @@ trigger = false
 _update_shape_index = 46
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionShape2D 6" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D 6" type="CollisionShape2D" parent="WallContainer"]
 
 transform/pos = Vector2( -160, -192 )
 shape = SubResource( 48 )
@@ -667,7 +680,7 @@ trigger = false
 _update_shape_index = 47
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionShape2D 7" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D 7" type="CollisionShape2D" parent="WallContainer"]
 
 transform/pos = Vector2( -72, -192 )
 shape = SubResource( 49 )
@@ -675,7 +688,7 @@ trigger = false
 _update_shape_index = 48
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionShape2D 8" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D 8" type="CollisionShape2D" parent="WallContainer"]
 
 transform/pos = Vector2( 72, -192 )
 shape = SubResource( 50 )
@@ -683,7 +696,7 @@ trigger = false
 _update_shape_index = 49
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionShape2D 9" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D 9" type="CollisionShape2D" parent="WallContainer"]
 
 transform/pos = Vector2( 160, -136 )
 shape = SubResource( 51 )
@@ -691,7 +704,7 @@ trigger = false
 _update_shape_index = 50
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionShape2D 10" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D 10" type="CollisionShape2D" parent="WallContainer"]
 
 transform/pos = Vector2( 160, -192 )
 shape = SubResource( 52 )
@@ -699,7 +712,7 @@ trigger = false
 _update_shape_index = 51
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionPolygon2D 10" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D 10" type="CollisionPolygon2D" parent="WallContainer"]
 
 build_mode = 0
 polygon = Vector2Array( -8, -128, -56, -128, -56, -144, 56, -144, 56, -128, 8, -128, 8, -80, -8, -80 )
@@ -707,7 +720,7 @@ shape_range = Vector2( 52, 55 )
 trigger = false
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionPolygon2D 11" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D 11" type="CollisionPolygon2D" parent="WallContainer"]
 
 build_mode = 0
 polygon = Vector2Array( 88, -96, 88, -144, 104, -144, 104, -32, 88, -32, 88, -80, 40, -80, 40, -96 )
@@ -715,7 +728,7 @@ shape_range = Vector2( 56, 59 )
 trigger = false
 __meta__ = { "_edit_lock_":true }
 
-[node name="CollisionPolygon2D 12" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D 12" type="CollisionPolygon2D" parent="WallContainer"]
 
 build_mode = 0
 polygon = Vector2Array( -16, -48, -16, -40, -48, -40, -48, 8, 48, 8, 48, -40, 16, -40, 16, -48, 56, -48, 56, 16, -56, 16, -56, -48 )
@@ -723,12 +736,999 @@ shape_range = Vector2( 60, 64 )
 trigger = false
 __meta__ = { "_edit_lock_":true }
 
-[node name="EnemyDoor" type="CollisionShape2D" parent="."]
+[node name="EnemyDoor" type="CollisionShape2D" parent="WallContainer"]
 
 transform/pos = Vector2( 0, -44 )
 shape = SubResource( 66 )
 trigger = false
 _update_shape_index = 65
 __meta__ = { "_edit_lock_":true }
+
+[node name="GemContainer" type="Node2D" parent="."]
+
+transform/pos = Vector2( -224, -247 )
+script/script = ExtResource( 3 )
+
+[node name="Gem" parent="GemContainer" instance=ExtResource( 4 )]
+
+[node name="Gem 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 40, 23 )
+
+[node name="Gem1" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 56, 23 )
+
+[node name="Gem3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 72, 23 )
+
+[node name="Gem5" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 152, 23 )
+
+[node name="Gem2 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 88, 23 )
+
+[node name="Gem23" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 168, 23 )
+
+[node name="Gem4" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 23 )
+
+[node name="Gem5 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 184, 23 )
+
+[node name="Gem4 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 136, 23 )
+
+[node name="Gem2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 120, 23 )
+
+[node name="Gem5 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 200, 23 )
+
+[node name="Gem6 4" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 246, 23 )
+
+[node name="Gem6" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 262, 23 )
+
+[node name="Gem6 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 278, 23 )
+
+[node name="Gem6 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 294, 23 )
+
+[node name="Gem6 7" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 374, 23 )
+
+[node name="Gem24 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 310, 23 )
+
+[node name="Gem24" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 390, 23 )
+
+[node name="Gem6 6" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 326, 23 )
+
+[node name="Gem54" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 406, 23 )
+
+[node name="Gem43" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 358, 23 )
+
+[node name="Gem53" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 422, 23 )
+
+[node name="Gem6 5" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 23 )
+
+[node name="Gem7 5" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 24, 87 )
+
+[node name="Gem7 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 40, 87 )
+
+[node name="Gem7 4" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 56, 87 )
+
+[node name="Gem7 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 72, 87 )
+
+[node name="Gem7 8" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 152, 87 )
+
+[node name="Gem25 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 88, 87 )
+
+[node name="Gem25" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 168, 87 )
+
+[node name="Gem7 7" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 87 )
+
+[node name="Gem55 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 184, 87 )
+
+[node name="Gem44" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 136, 87 )
+
+[node name="Gem7 6" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 120, 87 )
+
+[node name="Gem55" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 200, 87 )
+
+[node name="Gem56" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 216, 87 )
+
+[node name="Gem57" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 231, 87 )
+
+[node name="Gem65" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 246, 87 )
+
+[node name="Gem7" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 262, 87 )
+
+[node name="Gem64" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 278, 87 )
+
+[node name="Gem63" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 294, 87 )
+
+[node name="Gem68" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 374, 87 )
+
+[node name="Gem243" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 310, 87 )
+
+[node name="Gem25 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 390, 87 )
+
+[node name="Gem67" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 326, 87 )
+
+[node name="Gem55 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 406, 87 )
+
+[node name="Gem44 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 358, 87 )
+
+[node name="Gem66" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 87 )
+
+[node name="Gem55 4" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 422, 87 )
+
+[node name="Gem76" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 24, 135 )
+
+[node name="Gem73" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 40, 135 )
+
+[node name="Gem75" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 56, 135 )
+
+[node name="Gem74" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 72, 135 )
+
+[node name="Gem79" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 152, 135 )
+
+[node name="Gem253" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 88, 135 )
+
+[node name="Gem26" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 168, 135 )
+
+[node name="Gem78" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 135 )
+
+[node name="Gem553" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 184, 135 )
+
+[node name="Gem58" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 200, 135 )
+
+[node name="Gem69 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 246, 135 )
+
+[node name="Gem8" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 262, 135 )
+
+[node name="Gem69 5" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 278, 135 )
+
+[node name="Gem69" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 294, 135 )
+
+[node name="Gem69 4" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 374, 135 )
+
+[node name="Gem254" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 390, 135 )
+
+[node name="Gem554" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 406, 135 )
+
+[node name="Gem443" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 358, 135 )
+
+[node name="Gem69 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 135 )
+
+[node name="Gem555" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 422, 135 )
+
+[node name="Gem77" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 24, 471 )
+
+[node name="Gem77 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 40, 471 )
+
+[node name="Gem77 4" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 56, 471 )
+
+[node name="Gem77 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 72, 471 )
+
+[node name="Gem710 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 152, 471 )
+
+[node name="Gem255" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 88, 471 )
+
+[node name="Gem27" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 168, 471 )
+
+[node name="Gem710" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 471 )
+
+[node name="Gem556 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 184, 471 )
+
+[node name="Gem45" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 136, 471 )
+
+[node name="Gem77 5" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 120, 471 )
+
+[node name="Gem59" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 200, 471 )
+
+[node name="Gem59 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 216, 471 )
+
+[node name="Gem59 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 231, 471 )
+
+[node name="Gem70 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 246, 471 )
+
+[node name="Gem9" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 262, 471 )
+
+[node name="Gem70 5" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 278, 471 )
+
+[node name="Gem70" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 294, 471 )
+
+[node name="Gem70 4" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 374, 471 )
+
+[node name="Gem244" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 310, 471 )
+
+[node name="Gem255 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 390, 471 )
+
+[node name="Gem70 6" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 326, 471 )
+
+[node name="Gem556" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 406, 471 )
+
+[node name="Gem444" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 358, 471 )
+
+[node name="Gem70 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 471 )
+
+[node name="Gem556 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 422, 471 )
+
+[node name="Gem80" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 24, 423 )
+
+[node name="Gem82" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 24, 439 )
+
+[node name="Gem84 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 200, 439 )
+
+[node name="Gem843" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 246, 439 )
+
+[node name="Gem844" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 422, 439 )
+
+[node name="Gem845" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 390, 391 )
+
+[node name="Gem846" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 422, 343 )
+
+[node name="Gem83" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 24, 455 )
+
+[node name="Gem84" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 200, 455 )
+
+[node name="Gem85" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 246, 455 )
+
+[node name="Gem86" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 422, 455 )
+
+[node name="Gem87" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 390, 407 )
+
+[node name="Gem88" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 422, 359 )
+
+[node name="Gem773" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 40, 423 )
+
+[node name="Gem775" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 56, 423 )
+
+[node name="Gem774" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 72, 423 )
+
+[node name="Gem7103" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 152, 423 )
+
+[node name="Gem256" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 88, 423 )
+
+[node name="Gem28" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 168, 423 )
+
+[node name="Gem711" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 423 )
+
+[node name="Gem5564" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 184, 423 )
+
+[node name="Gem60" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 200, 423 )
+
+[node name="Gem703" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 246, 423 )
+
+[node name="Gem10" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 262, 423 )
+
+[node name="Gem706" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 278, 423 )
+
+[node name="Gem71" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 294, 423 )
+
+[node name="Gem705" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 374, 423 )
+
+[node name="Gem2553" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 390, 423 )
+
+[node name="Gem557" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 406, 423 )
+
+[node name="Gem445" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 358, 423 )
+
+[node name="Gem704" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 423 )
+
+[node name="Gem5563" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 422, 423 )
+
+[node name="Gem81" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 24, 327 )
+
+[node name="Gem776" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 40, 327 )
+
+[node name="Gem776 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 56, 327 )
+
+[node name="Gem776 4" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 72, 327 )
+
+[node name="Gem7104" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 152, 327 )
+
+[node name="Gem257" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 88, 327 )
+
+[node name="Gem29" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 168, 327 )
+
+[node name="Gem714" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 327 )
+
+[node name="Gem715" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 343 )
+
+[node name="Gem717" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 200, 343 )
+
+[node name="Gem718" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 246, 343 )
+
+[node name="Gem719" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 343 )
+
+[node name="Gem720" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 391 )
+
+[node name="Gem721" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 294, 391 )
+
+[node name="Gem722" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 152, 391 )
+
+[node name="Gem723" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 391 )
+
+[node name="Gem724" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 56, 391 )
+
+[node name="Gem725" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 24, 343 )
+
+[node name="Gem716" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 359 )
+
+[node name="Gem717 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 200, 359 )
+
+[node name="Gem7173" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 246, 359 )
+
+[node name="Gem7174" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 359 )
+
+[node name="Gem7175" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 407 )
+
+[node name="Gem7176" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 294, 407 )
+
+[node name="Gem7177" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 152, 407 )
+
+[node name="Gem7178" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 407 )
+
+[node name="Gem7179" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 56, 407 )
+
+[node name="Gem7180" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 24, 359 )
+
+[node name="Gem5565" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 184, 327 )
+
+[node name="Gem46" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 136, 327 )
+
+[node name="Gem776 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 120, 327 )
+
+[node name="Gem7763" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 311 )
+
+[node name="Gem7766" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 247 )
+
+[node name="Gem7765" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 279 )
+
+[node name="Gem7766 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 215 )
+
+[node name="Gem77665 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 215 )
+
+[node name="Gem77664" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 167 )
+
+[node name="Gem77665 4" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 167 )
+
+[node name="Gem7764" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 295 )
+
+[node name="Gem7767" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 295 )
+
+[node name="Gem7766 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 231 )
+
+[node name="Gem77665" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 231 )
+
+[node name="Gem77663" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 183 )
+
+[node name="Gem77665 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 183 )
+
+[node name="Gem7765 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 263 )
+
+[node name="Gem77655" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 263 )
+
+[node name="Gem77656" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 247 )
+
+[node name="Gem77657" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 279 )
+
+[node name="Gem77658" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 311 )
+
+[node name="Gem77653" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 199 )
+
+[node name="Gem77655 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 199 )
+
+[node name="Gem77654" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 151 )
+
+[node name="Gem77655 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 151 )
+
+[node name="Gem61" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 200, 327 )
+
+[node name="Gem707" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 246, 327 )
+
+[node name="Gem11" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 262, 327 )
+
+[node name="Gem707 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 278, 327 )
+
+[node name="Gem72" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 294, 327 )
+
+[node name="Gem707 4" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 374, 327 )
+
+[node name="Gem245" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 310, 327 )
+
+[node name="Gem2554" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 390, 327 )
+
+[node name="Gem707 5" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 326, 327 )
+
+[node name="Gem558" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 406, 327 )
+
+[node name="Gem446" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 358, 327 )
+
+[node name="Gem707 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 327 )
+
+[node name="Gem5565 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 422, 327 )
+
+[node name="Gem777" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 40, 375 )
+
+[node name="Gem778" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 24, 375 )
+bigGem = true
+
+[node name="Gem777 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 56, 375 )
+
+[node name="Gem7105" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 152, 375 )
+
+[node name="Gem30" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 168, 375 )
+
+[node name="Gem713" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 375 )
+
+[node name="Gem5566" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 184, 375 )
+
+[node name="Gem47" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 136, 375 )
+
+[node name="Gem777 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 120, 375 )
+
+[node name="Gem62" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 200, 375 )
+
+[node name="Gem708" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 246, 375 )
+
+[node name="Gem12" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 262, 375 )
+
+[node name="Gem708 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 278, 375 )
+
+[node name="Gem82 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 294, 375 )
+
+[node name="Gem246" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 310, 375 )
+
+[node name="Gem2555" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 390, 375 )
+
+[node name="Gem708 5" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 326, 375 )
+
+[node name="Gem559" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 406, 375 )
+
+[node name="Gem708 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 375 )
+
+[node name="Gem5566 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 422, 375 )
+bigGem = true
+
+[node name="Gem89 4" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 24, 39 )
+
+[node name="Gem847 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 200, 39 )
+
+[node name="Gem847 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 246, 39 )
+
+[node name="Gem847" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 422, 39 )
+
+[node name="Gem89" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 24, 55 )
+bigGem = true
+
+[node name="Gem89 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 200, 55 )
+
+[node name="Gem89 3" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 246, 55 )
+
+[node name="Gem894" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 246, 71 )
+
+[node name="Gem895" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 200, 71 )
+
+[node name="Gem896" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 71 )
+
+[node name="Gem900" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 103 )
+
+[node name="Gem901" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 119 )
+
+[node name="Gem902" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 294, 119 )
+
+[node name="Gem903" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 294, 103 )
+
+[node name="Gem905" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 103 )
+
+[node name="Gem906" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 422, 103 )
+
+[node name="Gem907" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 422, 119 )
+
+[node name="Gem908" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 119 )
+
+[node name="Gem904" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 152, 103 )
+
+[node name="Gem897" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 55 )
+
+[node name="Gem898" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 104, 39 )
+
+[node name="Gem899" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 24, 71 )
+transform/rot = -0.0774816
+
+[node name="Gem900 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 24, 103 )
+transform/rot = -0.0774816
+
+[node name="Gem9003" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 24, 119 )
+transform/rot = -0.0774816
+
+[node name="Gem9004" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 152, 119 )
+transform/rot = -0.0774816
+
+[node name="Gem89 5" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 422, 55 )
+bigGem = true
+
+[node name="Gem8911" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 55 )
+
+[node name="Gem8910" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 422, 71 )
+
+[node name="Gem8911 2" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 71 )
+
+[node name="Gem89113" parent="GemContainer" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 342, 39 )
 
 
